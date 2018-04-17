@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/relative_layout"
+    android:layout_height="80dp"
+    android:layout_margin="5dp">
+
+    <ImageView
+        android:id="@+id/cop_icon"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+       android:src="@drawable/sf"/>
+    <TextView
+        android:id="@+id/copName"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/cop_icon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+     <TextView
+         android:id="@+id/copPhone"
+         android:layout_marginTop="10dp"
+         android:layout_toRightOf="@id/cop_icon"
+         android:layout_below="@id/copName"
+         android:layout_marginLeft="10dp"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content" />
+
+
+</RelativeLayout>
