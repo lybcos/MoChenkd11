@@ -1,7 +1,5 @@
 package com.example.administrator.mochenkd.mvp.model;
 
-import android.util.Log;
-
 import com.example.administrator.mochenkd.HttpData.retrofit.HttpData;
 
 import com.example.administrator.mochenkd.mvp.activity.OnLoadListener;
@@ -15,7 +13,7 @@ import rx.Observer;
 
 public class DataKdModel {
     public void loadData(final OnLoadListener onLoadListener, boolean isCache, String com, String no, String key) {
-        HttpData.getInstance().getHomeInfo(new Observer<KdBeanResults.ResultBean>() {
+        HttpData.getInstance().getHomeInfo(new Observer<KdBeanResults>() {
             @Override
             public void onCompleted() {
 
@@ -27,10 +25,7 @@ public class DataKdModel {
             }
 
             @Override
-            public void onNext(KdBeanResults.ResultBean resultBean) {
-                if (resultBean == null) {
-                    Log.d("DataLyb", "6666");
-                }
+            public void onNext(KdBeanResults resultBean) {
                 onLoadListener.OnSuccess(resultBean);
             }
 

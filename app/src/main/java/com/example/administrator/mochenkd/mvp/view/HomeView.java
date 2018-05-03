@@ -14,6 +14,6 @@ public interface HomeView {
     //显示加载失败
     void showLoadFailMsg();
     //加载新数据
-    void newDatas(KdBeanResults.ResultBean results);
+    void newDatas(KdBeanResults results);
 
 }

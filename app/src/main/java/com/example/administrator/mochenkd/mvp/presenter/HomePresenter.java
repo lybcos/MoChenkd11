@@ -9,7 +9,7 @@ import com.example.administrator.mochenkd.mvp.view.HomeView;
  * Created by Administrator on 2018/4/9.
  */
 
-public class HomePresenter implements OnLoadListener<KdBeanResults.ResultBean>{
+public class HomePresenter implements OnLoadListener<KdBeanResults>{
     private HomeView mView;
     private DataKdModel mModel;
 
@@ -23,7 +23,7 @@ public class HomePresenter implements OnLoadListener<KdBeanResults.ResultBean>{
     }
 
     @Override
-    public void OnSuccess(KdBeanResults.ResultBean data) {
+    public void OnSuccess(KdBeanResults data) {
         mView.newDatas(data);
     }
 

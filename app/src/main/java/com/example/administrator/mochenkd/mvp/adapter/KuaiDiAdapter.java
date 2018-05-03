@@ -1,7 +1,6 @@
 package com.example.administrator.mochenkd.mvp.adapter;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +9,9 @@ import android.widget.TextView;
 
 import com.example.administrator.mochenkd.R;
 import com.example.administrator.mochenkd.mvp.entity.KdBeanResults;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Administrator on 2018/4/7.
@@ -21,13 +23,25 @@ public class KuaiDiAdapter extends BaseAdapter {
 
     private LayoutInflater mInflater;
     private Context context;
-    private KdBeanResults.ResultBean resultBean;
+    private List<KdBeanResults.ResultBean.ListBean> mList = new ArrayList<>();
+    private KdBeanResults resultBean;
+    private KdBeanResults.ResultBean resultBeanLYB=new KdBeanResults.ResultBean();
+    private static int a;
+    private KdBeanResults.ResultBean.ListBean re;
 
-    public void setKdBeanResults(KdBeanResults.ResultBean kdBeanResults) {
+    public void setKdBeanResults(KdBeanResults kdBeanResults) {
         this.resultBean = kdBeanResults;
+        resultBeanLYB= resultBean.getResult();
+        a = resultBeanLYB.getList().size();
+        re = resultBeanLYB.getList().get(1);
         notifyDataSetChanged();
     }
-    public KuaiDiAdapter(Context context, KdBeanResults.ResultBean kdBeanResults) {
+
+    public List<KdBeanResults.ResultBean.ListBean> getList() {
+        return mList;
+    }
+
+    public KuaiDiAdapter(Context context, KdBeanResults kdBeanResults) {
         this.resultBean = kdBeanResults;
         this.context = context;
         mInflater = LayoutInflater.from(context);
@@ -35,12 +49,16 @@ public class KuaiDiAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-            return resultBean.getList().size();
+//        return resultBeanLYB.getList().size();
+//            return resultBean.getResult().getList().size();
+         return a;
     }
 
     @Override
     public Object getItem(int position) {
-        return resultBean.getList().get(position);
+//        return resultBean.getResult().getList().get(position);
+      return re;
+//        return null;
     }
 
     @Override
@@ -54,8 +72,8 @@ public class KuaiDiAdapter extends BaseAdapter {
             convertView = mInflater.inflate(R.layout.time_item, null);
         }
         ViewHolder holder = getViewHolder(convertView);
-        KdBeanResults.ResultBean.ListBean kd=resultBean.getList().get(position);
-        holder.tv_content.setText(kd.getRemark());
+        KdBeanResults.ResultBean.ListBean kd = resultBean.getResult().getList().get(position);
+        holder.tv_content.setText((CharSequence) re);
         holder.tv_time.setText(kd.getDatetime());
         return convertView;
     }

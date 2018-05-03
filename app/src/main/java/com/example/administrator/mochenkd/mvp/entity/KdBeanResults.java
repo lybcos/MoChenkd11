@@ -2,10 +2,6 @@ package com.example.administrator.mochenkd.mvp.entity;
 
 import java.util.List;
 
-/**
- * Created by Administrator on 2018/4/7.
- */
-
 public class KdBeanResults {
 
     /**
@@ -18,7 +14,7 @@ public class KdBeanResults {
     private String resultcode;
     private String reason;
     private ResultBean result;
-    private int error_code;//错误码，0表示查询正常，其他表示查询不到物流信息或发生了其他错误
+    private int error_code;
 
     public String getResultcode() {
         return resultcode;
@@ -52,7 +48,7 @@ public class KdBeanResults {
         this.error_code = error_code;
     }
 
-    public static class ResultBean extends KdBeanResults {
+    public static class ResultBean {
         /**
          * company : EMS
          * com : ems
@@ -62,9 +58,9 @@ public class KdBeanResults {
          */
 
         private String company;
-        private String com;//快递公司简写，例如圆通yt
-        private String no;//快递单号
-        private String status;//1表示此快递单的物流信息不会发生变化，此时您可缓存下来；0表示有变化的可能性
+        private String com;
+        private String no;
+        private String status;
         private List<ListBean> list;
 
         public String getCompany() {
@@ -114,9 +110,9 @@ public class KdBeanResults {
              * zone :
              */
 
-            private String datetime;//物流事件发生的时间
-            private String remark;//物流事件的描述
-            private String zone;//快件当时所在区域，由于快递公司升级，现大多数快递不提供此信息
+            private String datetime;
+            private String remark;
+            private String zone;
 
             public String getDatetime() {
                 return datetime;

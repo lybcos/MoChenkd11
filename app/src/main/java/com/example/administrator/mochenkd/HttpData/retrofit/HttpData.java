@@ -38,10 +38,10 @@ public class HttpData extends RetrofitUtil {
                 return SingletonHolder.INSTANCE;
         }
 
-        public void getHomeInfo(Observer<KdBeanResults.ResultBean> observer, boolean isCache, String com, String no, String key) {
+        public void getHomeInfo(Observer<KdBeanResults> observer, boolean isCache, String com, String no, String key) {
                         Observable observable=kdService.getDataResults(key,com, no );
-                        Observable observableCahce = providers.getHomeTypes(observable, new DynamicKey("首页"), new EvictDynamicKey(true)).map(new HttpResultFuncCcche<List<KdBeanResults.ResultBean>>());
-                setSubscribe(observableCahce,observer);
+                        Observable observableCahce = providers.getHomeTypes(observable, new DynamicKey("首页"), new EvictDynamicKey(true)).map(new HttpResultFuncCcche<List<KdBeanResults>>());
+                     setSubscribe(observableCahce,observer);
         }
 
         private static <T> void setSubscribe(Observable<T> observableCahce, Observer<T> observer) {

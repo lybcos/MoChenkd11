@@ -1,8 +1,6 @@
 package com.example.administrator.mochenkd.mvp.adapter;
 
 import android.content.Context;
-import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +12,6 @@ import android.widget.TextView;
 import com.example.administrator.mochenkd.R;
 import com.example.administrator.mochenkd.mvp.entity.KdBeanResults;
 import com.example.administrator.mochenkd.mvp.entity.copChoose;
-import com.example.administrator.mochenkd.mvp.activity.MainActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,11 +26,12 @@ public class CopAdapter extends BaseAdapter {
     private LayoutInflater mInflater;
     private KdBeanResults kdBeanResults;
     public OnItemClickListener clickListeren;
-   public  interface  OnItemClickListener{
-        void OnItemClick(View view,int position);
-    }
 
     public CopAdapter() {
+    }
+
+    public  interface  OnItemClickListener{
+        void OnItemClick(View view,int position);
     }
 
     public void setOnItemClickListener(OnItemClickListener onItemClickListeren) {

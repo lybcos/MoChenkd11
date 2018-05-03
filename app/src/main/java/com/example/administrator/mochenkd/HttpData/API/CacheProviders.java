@@ -27,7 +27,7 @@ import io.rx_cache.Reply;
 
 public interface CacheProviders {
     @LifeCache(duration = 7,timeUnit = TimeUnit.DAYS)
-    rx.Observable<Reply<List<KdBeanResults.ResultBean>>> getHomeTypes(rx.Observable observable, DynamicKey username, EvictDynamicKey evictDynamicKey);
+    rx.Observable<Reply<List<KdBeanResults>>> getHomeTypes(rx.Observable observable, DynamicKey username, EvictDynamicKey evictDynamicKey);
 
 }
 

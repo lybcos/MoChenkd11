@@ -12,20 +12,21 @@ import com.example.administrator.mochenkd.mvp.view.HomeView;
 public class KdDetailActivity extends AppCompatActivity implements HomeView {
      private KuaiDiAdapter adapter;
      private ListView lv_detail;
-     private KdBeanResults.ResultBean kd;
+     private KdBeanResults kd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kd_detail);
         lv_detail = findViewById(R.id.lv_detail);
-        adapter=new KuaiDiAdapter(this,null);
+        kd = new KdBeanResults();
+        adapter=new KuaiDiAdapter(this,kd);
         lv_detail.setAdapter(adapter);
 
     }
 
     @Override
-    public void newDatas(KdBeanResults.ResultBean results) {
+    public void newDatas(KdBeanResults results) {
         if (results != null) {
             kd=results;
             adapter.setKdBeanResults(results);

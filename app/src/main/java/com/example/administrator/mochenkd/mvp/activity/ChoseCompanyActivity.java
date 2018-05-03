@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.administrator.mochenkd.R;
 import com.example.administrator.mochenkd.mvp.adapter.CopAdapter;
@@ -20,7 +21,9 @@ public class ChoseCompanyActivity extends AppCompatActivity {
     private CopAdapter copAdapter;
     private ListView lv;
     private ImageView image_back;
-private String[]mString={ "sf",
+    private copChoose copCho=new copChoose();
+
+    private String[]mString={ "sf",
                           "yt",
                           "sto",
                           "zto",
@@ -32,12 +35,14 @@ private String[]mString={ "sf",
                           "zjs",
                           "qf",};
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_company);
         initView();
         initListener();
+//        Log.d("KDcop",copCho.getCopName());
     }
 
 
@@ -53,10 +58,11 @@ private String[]mString={ "sf",
             public void OnItemClick(View view, int position) {
                 Intent intent = new Intent(ChoseCompanyActivity.this, MainActivity.class);
                 intent.putExtra("com",mString[position]);
-                Log.d("COMl", mString[position]);
+                       Toast.makeText(ChoseCompanyActivity.this, "你选择的快递公司是", Toast.LENGTH_SHORT).show();
                 startActivity(intent);
             }
         });
+
         lv.setAdapter(copAdapter);
     }
 

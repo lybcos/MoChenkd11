@@ -10,7 +10,10 @@ public class copChoose {
     private String copPhone;//快递公司电话
     private String[]com;
 
-    public copChoose(String[]com,int icon, String copName, String copPhone) {
+    public copChoose() {
+    }
+
+    public copChoose(String[]com, int icon, String copName, String copPhone) {
         this.com=com;
         this.icon = icon;
         this.copName = copName;
